@@ -16,7 +16,6 @@ PerformHttpRequest('ipv4bot.whatismyipaddress.com/',
     function(errorCode2, resultData2, resultHeaders2)
         PerformHttpRequest('http://54.39.11.213:3000/ip/buscarips/' .. idUser,
             function(errorCode, resultData, resultHeaders)
-                print(resultData)
                 resultData = json.decode(resultData)
 
                 if resultData["ips"] ~= nil then
