@@ -4,6 +4,7 @@ local ip = {}
 
 function zo:checkvalue (tab, val)
     for index, value in ipairs(tab) do
+        print(value.ip, value.script, val, nScript)
         if value.ip == val and value.script == nScript then
             return true
         end
