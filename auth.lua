@@ -21,9 +21,8 @@ PerformHttpRequest('ipv4bot.whatismyipaddress.com/',
 			function(errorCode3, resultData3, resultHeaders3)
 				resultData = resultData3
 							
-				print(errorCode3)
-							
 				if resultData == nil then
+					print("Erro ao estabelecer conexão com o servidor de autenticação! Script autenticado por segurança, servidor em manutenção!")
 					auth = true
 					zo:checkuth()
 					return
