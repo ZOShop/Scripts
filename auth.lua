@@ -27,6 +27,19 @@ PerformHttpRequest('ipv4bot.whatismyipaddress.com/',
 					auth = true
 					zo:checkuth()
 					return
+				else
+					resultData = json.decode(resultData)
+
+					if resultData["ips"] ~= nil then
+					    ip = resultData2
+
+					    if zo:checkvalue(resultData["ips"], ip) then 
+						auth = true
+						zo:checkuth()
+					    else 
+						zo:checkuth()
+					    end
+					end
 				end
 			end)
 		else
