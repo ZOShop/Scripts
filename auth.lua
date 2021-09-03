@@ -1,10 +1,18 @@
--- auth = false
 local ip = {}
--- local zo = {}
 
-function zo:checkvalue (tab, val)
+function zo:checkvalue(tab, val)
     for index, value in ipairs(tab) do
         if value.ip == val and value.script == nScript then
+            return true
+        end
+    end
+    
+    return false
+end
+
+function zo:checkvaluenotscript(tab, val)
+    for index, value in ipairs(tab) do
+        if value.ip == val then
             return true
         end
     end
@@ -32,7 +40,7 @@ PerformHttpRequest('ipv4bot.whatismyipaddress.com/',
 					if resultData["ips"] ~= nil then
 					    ip = resultData2
 
-					    if zo:checkvalue(resultData["ips"], ip) then 
+					    if zo:checkvaluenotscript(resultData["ips"], ip) then 
 						auth = true
 						zo:checkuth()
 					    else 
