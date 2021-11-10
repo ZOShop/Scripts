@@ -20,9 +20,10 @@ function zo:checkvaluenotscript(tab, val)
     return false
 end
 
--- Teste
 PerformHttpRequest('https://api.ipify.org/?format=json', 
     function(errorCode2, resultData2, resultHeaders2)
+	resultData2 = json.decode(resultData2)
+		
         PerformHttpRequest('http://54.39.11.213:3000/ip/buscarips/' .. idUser,
             function(errorCode, resultData, resultHeaders)
 		if resultData == nil then
