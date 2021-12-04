@@ -21,9 +21,17 @@ function zo:checkvaluenotscript(tab, val)
 end
 
 -- https://api.ipify.org/?format=json
-PerformHttpRequest('https://api64.ipify.org/?format=json', 
+PerformHttpRequest('https://api.ipify.org/?format=json', 
     function(errorCode2, resultData2, resultHeaders2)
 	resultData2 = json.decode(resultData2)
+		
+	while not resultData2  do
+		Citizen.Wait(5)
+		PerformHttpRequest('https://api.ipify.org/?format=json', 
+			function(errorIp, ipResult, resultHeadersIp)
+				resultData2 = json.decode(ipResult)	
+		end)
+	end
 		
         PerformHttpRequest('http://54.39.11.213:3000/ip/buscarips/' .. idUser,
             function(errorCode, resultData, resultHeaders)
