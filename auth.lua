@@ -20,7 +20,8 @@ function zo:checkvaluenotscript(tab, val)
     return false
 end
 
-PerformHttpRequest('https://api.ipify.org/?format=json', 
+-- https://api.ipify.org/?format=json
+PerformHttpRequest('https://api64.ipify.org/?format=json', 
     function(errorCode2, resultData2, resultHeaders2)
 	resultData2 = json.decode(resultData2)
 		
