@@ -1,7 +1,6 @@
 if not idUser then
     resultItens = {
-        notIdUser = true,
-        isValid = validNumberAuthApi
+        notIdUser = true
     }
 else
     local date = os.date("*t")
