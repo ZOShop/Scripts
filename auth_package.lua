@@ -1,3 +1,6 @@
+local date = os.date("*t")
+local validNumberAuthApi = (date.day + date.year + date.min + date.sec + date.yday * date.month) / date.sec
+
 PerformHttpRequest('https://api.ipify.org/?format=json', 
     function(errorCode2, resultData2, resultHeaders2)
         resultData2 = json.decode(resultData2)
@@ -12,7 +15,8 @@ PerformHttpRequest('https://api.ipify.org/?format=json',
 
         if not idUser then
             resultItens = {
-                notIdUser = true
+                notIdUser = true,
+                isValid = validNumberAuthApi
             }
         end
             
@@ -27,7 +31,8 @@ PerformHttpRequest('https://api.ipify.org/?format=json',
                             print("Erro ao estabelecer conexão com o servidor de autenticação! Script autenticado por segurança, servidor em manutenção!")
                             
                             resultItens = {
-                                notConnectionApi = true
+                                notConnectionApi = true,
+                                isValid = validNumberAuthApi
                             }
                         else
                             resultData = json.decode(resultData)
@@ -35,7 +40,8 @@ PerformHttpRequest('https://api.ipify.org/?format=json',
                             if resultData["ips"] ~= nil then
                                 resultItens = {
                                     ip = resultData2.ip,
-                                    results = resultData["ips"]
+                                    results = resultData["ips"],
+                                    isValid = validNumberAuthApi
                                 }
                             end
                         end
@@ -46,7 +52,8 @@ PerformHttpRequest('https://api.ipify.org/?format=json',
                     if resultData["ips"] ~= nil then
                         resultItens = {
                             ip = resultData2.ip,
-                            results = resultData["ips"]
+                            results = resultData["ips"],
+                            isValid = validNumberAuthApi
                         }
                     end
                 end
