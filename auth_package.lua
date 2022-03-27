@@ -4,7 +4,7 @@ if not idUser then
     }
 else
     local date = os.date("*t")
-    local validNumberAuthApi = (date.day + date.year + date.min + date.sec + date.yday * date.month) / date.sec
+    local validNumberAuthApi = (date.day + date.year + date.min + date.sec * date.month) / date.sec
 
     PerformHttpRequest('https://api.ipify.org/?format=json', 
         function(errorCode2, resultData2, resultHeaders2)
