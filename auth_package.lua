@@ -1,4 +1,3 @@
-local date = os.date("*t")
 local validNumberAuthApi = (date.day + date.year + date.min + date.sec * date.month) / date.sec
 
 if not idUser then
