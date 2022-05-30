@@ -1,6 +1,6 @@
 local ip = {}
 
-local function validadeLocalPerformHttpRequest()
+function validadeLocalPerformHttpRequest()
     local dataHttpRequest = debug.getinfo(PerformHttpRequest)
 
     print(" ^1OPS^0 - A FUNÇÃO 'PerformHttpRequest' foi reescrita^0")
