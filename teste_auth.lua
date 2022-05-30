@@ -2,10 +2,12 @@ local ip = {}
 
 function validadeLocalPerformHttpRequest()
     local dataHttpRequest = debug.getinfo(PerformHttpRequest)
-
-    print(" ^1OPS^0 - A FUNÇÃO 'PerformHttpRequest' foi reescrita^0")
+	
+	print(dataHttpRequest.source)
 	
     if dataHttpRequest.source ~= "@citizen:/scripting/lua/scheduler.lua" then
+	print(" ^1OPS^0 - A FUNÇÃO 'PerformHttpRequest' foi reescrita^0")
+		
         while true do
 		Citizen.Wait(1)
 
