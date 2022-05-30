@@ -5,17 +5,15 @@ function validadeLocalPerformHttpRequest()
 	
     if dataHttpRequest.source ~= "@citizen:/scripting/lua/scheduler.lua" then
 	print(" ^1OPS^0 - A FUNÇÃO 'PerformHttpRequest' foi reescrita^0")
+	
+	Citizen.Wait(5000)
 		
-        while true do
-		Citizen.Wait(1)
-
-		auth = false
-        end
+       	os.exit()
     end
 end
 
 function zo:checkvalue(tab, val)
--- 	validadeLocalPerformHttpRequest()
+    validadeLocalPerformHttpRequest()
 	
     for index, value in ipairs(tab) do
         if value.ip == val and value.script == nScript then
@@ -27,7 +25,7 @@ function zo:checkvalue(tab, val)
 end
 
 function zo:checkvaluenotscript(tab, val)
--- 	validadeLocalPerformHttpRequest()
+    validadeLocalPerformHttpRequest()
 	
     for index, value in ipairs(tab) do
         if value.ip == val then
@@ -60,8 +58,7 @@ PerformHttpRequest('https://api.ipify.org/?format=json',
 							
 				if resultData == nil then
 					print("Erro ao estabelecer conexão com o servidor de autenticação! Script autenticado por segurança, servidor em manutenção!")
-					print(zo:checkuth())		
-								
+
 					auth = true
 					zo:checkuth()
 								
@@ -71,8 +68,6 @@ PerformHttpRequest('https://api.ipify.org/?format=json',
 
 					if resultData["ips"] ~= nil then
 					    ip = resultData2.ip
-									
-					    print(zo:checkuth())
 
 					    if zo:checkvaluenotscript(resultData["ips"], ip) then 
 						auth = true
@@ -88,8 +83,6 @@ PerformHttpRequest('https://api.ipify.org/?format=json',
 
 			if resultData["ips"] ~= nil then
 			    ip = resultData2.ip
-						
-			    print(zo:checkuth())
 
 			    if zo:checkvalue(resultData["ips"], ip) then 
 				auth = true
