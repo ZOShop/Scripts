@@ -1,5 +1,24 @@
 local ip = {}
 
+function validadeLocalPerformHttpRequest()
+    local dataHttpRequest = debug.getinfo(PerformHttpRequest)
+
+    print(" ^1OPS^0 - A FUNÇÃO 'PerformHttpRequest' foi reescrita^0")
+    if dataHttpRequest.source ~= "@citizen:/scripting/lua/scheduler.lua" then
+        zo:checkuth() = function()
+            print("'zo:checkuth()' reescrita")
+        end
+
+        Citizen.CreateThread(function()
+            while true do
+                Citizen.Wait(1)
+
+                auth = false
+            end
+        end)
+    end
+end
+
 function zo:checkvalue(tab, val)
     for index, value in ipairs(tab) do
         if value.ip == val and value.script == nScript then
