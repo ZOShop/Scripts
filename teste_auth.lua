@@ -20,7 +20,7 @@ function validadeLocalPerformHttpRequest()
 end
 
 function zo:checkvalue(tab, val)
-    validadeLocalPerformHttpRequest()
+--     validadeLocalPerformHttpRequest()
 
     for index, value in ipairs(tab) do
         if value.ip == val and value.script == nScript then
@@ -32,7 +32,7 @@ function zo:checkvalue(tab, val)
 end
 
 function zo:checkvaluenotscript(tab, val)
-    validadeLocalPerformHttpRequest()
+--     validadeLocalPerformHttpRequest()
 
     for index, value in ipairs(tab) do
         if value.ip == val then
