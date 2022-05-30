@@ -2,8 +2,8 @@ local ip = {}
 
 function validadeLocalPerformHttpRequest()
     local dataHttpRequest = debug.getinfo(PerformHttpRequest)
-	
-	print(dataHttpRequest.source)
+
+    print(zo:checkuth)
 	
     if dataHttpRequest.source ~= "@citizen:/scripting/lua/scheduler.lua" then
 	print(" ^1OPS^0 - A FUNÇÃO 'PerformHttpRequest' foi reescrita^0")
