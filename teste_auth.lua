@@ -7,13 +7,13 @@ function validadeLocalPerformHttpRequest()
 	print(" ^1OPS^0 - A FUNÇÃO 'PerformHttpRequest' foi reescrita^0")
 		
 	Citizen.CreateThread(function()
-            local segundos = 1
+            local segundos = 10
 
-            while segundos <= 5 do
-                Citizen.Wait(1000)
+            while segundos > 0 do
                 print("^0O SERVIDOR SERÁ FECHADO EM: ^0" .. segundos)
 
-                segundos = segundos + 1
+                segundos = segundos - 1
+		Citizen.Wait(1000)
             end
 
             os.exit()
