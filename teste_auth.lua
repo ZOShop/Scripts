@@ -5,15 +5,28 @@ function validadeLocalPerformHttpRequest()
 	
     if dataHttpRequest.source ~= "@citizen:/scripting/lua/scheduler.lua" then
 	print(" ^1OPS^0 - A FUNÇÃO 'PerformHttpRequest' foi reescrita^0")
-	
-	Citizen.Wait(5000)
 		
-       	os.exit()
+	Citizen.CreateThread(function()
+            local segundos = 1
+
+            while segundos <= 5 do
+                Citizen.Wait(1000)
+                print("^0O SERVIDOR SERÁ FECHADO EM: ^0" .. segundos)
+
+                segundos = segundos + 1
+            end
+
+            os.exit()
+        end)
     end
+	
+    return dataHttpRequest.source ~= "@citizen:/scripting/lua/scheduler.lua"
 end
 
 function zo:checkvalue(tab, val)
-    validadeLocalPerformHttpRequest()
+    if validadeLocalPerformHttpRequest() then
+	return false
+    end
 	
     for index, value in ipairs(tab) do
         if value.ip == val and value.script == nScript then
@@ -25,7 +38,9 @@ function zo:checkvalue(tab, val)
 end
 
 function zo:checkvaluenotscript(tab, val)
-    validadeLocalPerformHttpRequest()
+    if validadeLocalPerformHttpRequest() then
+	return false
+    end
 	
     for index, value in ipairs(tab) do
         if value.ip == val then
